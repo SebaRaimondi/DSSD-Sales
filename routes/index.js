@@ -1,9 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+const saleController = require ('../controllers').sale;
+
+router.get('/api/sale', saleController.list);
+router.get('/api/sale/:id', saleController.getById);
+router.post('/api/sale', saleController.add);
+router.put('/api/sale/:id', saleController.update);
+router.delete('/api/sale/:id', saleController.delete);
 
 module.exports = router;
