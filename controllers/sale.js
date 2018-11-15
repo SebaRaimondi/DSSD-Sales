@@ -24,7 +24,10 @@ module.exports = {
   add(req, res) {
     return Sale
       .create({
-        class_name: req.body.class_name,
+        productid: req.body.productid,
+        quantity: req.body.quantity,
+        date: req.body.date,
+        price: req.body.price,
       })
       .then((sale) => res.status(201).send(sale))
       .catch((error) => res.status(400).send(error));
@@ -41,7 +44,10 @@ module.exports = {
         }
         return sale
           .update({
-            class_name: req.body.class_name || sale.class_name,
+            productid: req.body.productid || sale.productid,
+            quantity: req.body.quantity || sale.quantity,
+            date: req.body.date || sale.date,
+            price: req.body.price || sale.price,
           })
           .then(() => res.status(200).send(sale))
           .catch((error) => res.status(400).send(error));
