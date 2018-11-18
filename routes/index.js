@@ -3,6 +3,10 @@ var router = express.Router();
 
 const saleController = require ('../controllers').sale;
 
+router.get('/', function(req, res, next) {
+    res.render('index', { title: 'SalesAPI' });
+  });
+  
 router.get('/api/sale', saleController.list);
 router.get('/api/sale/:id', saleController.getById);
 router.post('/api/sale', saleController.add);
