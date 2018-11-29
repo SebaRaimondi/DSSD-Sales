@@ -28,6 +28,7 @@ module.exports = {
         quantity: req.body.quantity,
         date: req.body.date,
         price: req.body.price,
+        listCaseId: req.body.listCaseId,
       })
       .then((sale) => res.status(201).send(sale))
       .catch((error) => res.status(400).send(error));
@@ -48,6 +49,7 @@ module.exports = {
             quantity: req.body.quantity || sale.quantity,
             date: req.body.date || sale.date,
             price: req.body.price || sale.price,
+            listCaseId: req.body.listCaseId || sale.listCaseId,
           })
           .then(() => res.status(200).send(sale))
           .catch((error) => res.status(400).send(error));
